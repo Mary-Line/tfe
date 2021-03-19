@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="styles/app.css">-->
+    
+</head>
+<body>
+    <ul>
+        <li>
+            <h1>Température</h1>
+            <h2 class="temperature"></h2>
+        </li>
+        <li>
+            <h1>Humidité</h1>
+            <h2 class="humidite"></h2>
+        </li>
+        <li>
+            <h1>Niveau d'eau</h1>
+            <h2 class="waterlevel"></h2>
+        </li>
+    </ul>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="node_test.js"></script>
+    <script>
+        const socket = io();
+        const hum = document.querySelector(".humidite");
+        const tem = document.querySelector(".temperature");
+        const water = document.querySelector(".waterlevel");
+        socket.on("hum", (data)=>{
+            hum.innerHTML= data;            
+        });
+        socket.on("temp", (data)=>{
+            tem.innerHTML= data;
+        })
+        socket.on("waterlevel", (data)=>{
+            water.innerHTML = data;
+        })
+    </script>
+</body>
+</html>
