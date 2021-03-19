@@ -4,7 +4,8 @@
   "description": "travail de fin étude",
   "main": "node_test.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node_test.js"
   },
   "repository": {
     "type": "git",
